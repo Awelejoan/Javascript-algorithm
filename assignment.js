@@ -138,6 +138,52 @@
 
 // 13. Write a program in javascript that will output the area of a cone using the formular below
 
+// function Cone (p, r, h) {
+//    const x = Math.sqrt(h*h + r*r) 
+//    let A = p*r*(r + x)
+//    return A
+// }
 
+// console.log(Cone(22/7, 7, 100))
 
+// 14. Create a class named MathFunction with a constructor method that accepts two parameters length and width
+// and a method for area of circle which accepts a parameter for its radius, and a perimeter of rectangle in which 
+// the parameters are gotten from the constructor method.
+// a. Create an instance of the MathFunction class and call the perimeter of a rectangle and area of a radius
+// b. Create a child class that will inherit the MathFunction class, this time use super() to modify the 
+// constructor method in the parent class so you can introduce a third parameter “height”. Create a new 
+// method in this child class to calculate the Volume of Cuboid given the formular Length x Width x 
+// Height
+class MathFunction{
+    constructor(length,width){
+        this.length = length;
+        this.width = width;
+    }
+    areaOfCircle=(pie, r)=>{
+        this.pie = pie;
+        this.r = r;
+        this.answer = this.pie * this.r**2
+        this.result = 2 * (this.length + this.width)
+        console.log(`The perimeter of a  rectangle is 2(length + width) = 2*(${this.length} + ${this.width}) = ${this.result}`);
+        console.log(`Area of a circle = pie * r**2 = ${this.pie} * ${this.r*this.r} = ${this.answer}`)
+    }
 
+}
+// inheriting the class
+class Cuboid extends MathFunction{
+    constructor(length, width, height){
+        super(length, width)
+            this.length = length;
+            this.width = width;
+            this.height =height
+    }
+    cube=()=>{
+        this.result = this.length*this.width*this.height
+        console.log(`The area of a cuboid is length * width * height =${this.length} * ${this.width} *${this.height}= ${this.result} `)
+
+    }
+}
+const triangle = new Cuboid(10,10,10)
+console.log(triangle.cube());
+// const Perimeter = new MathFunction(5,5)
+// console.log(Perimeter.areaOfCircle(22/7, 7));
